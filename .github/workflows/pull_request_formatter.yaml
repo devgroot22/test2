@@ -1,5 +1,5 @@
-name: "[PR] Apply Formatter & Linter"
-on: [pull_request, workflow_dispatch]
+name: "[PR] Apply Black Formatter"
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   pull_request_code_formatter_and_linter:
@@ -14,10 +14,3 @@ jobs:
         id: action_black
         with:
           black_args: "."
-      - name: Ruff Linter
-        uses: chartboost/ruff-action@v1
-        id: action_ruff
-        with:
-          src: "./"
-          args: "--fix"
-

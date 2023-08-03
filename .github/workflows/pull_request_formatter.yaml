@@ -1,5 +1,5 @@
 name: "[PR] Apply Black Formatter"
-on: [pull_request, workflow_dispatch]
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   pull_request_code_formatter_and_linter:
@@ -11,5 +11,6 @@ jobs:
           fetch-depth: "0"
       - name: Black Code Formatter
         uses: rickstaa/action-black@v1
-        hooks:
-          - id: black
+        id: action_black
+        with:
+          black_args: "."
